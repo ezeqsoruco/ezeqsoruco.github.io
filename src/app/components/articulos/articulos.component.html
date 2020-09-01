@@ -1,0 +1,225 @@
+<h3>Artículos <small>(Listado)</small></h3>
+<!-- Formulario Filtro de busqueda, se ve cuando la accion es Listado(busqueda/listado)-->
+<form name="FormFiltro" class="bg-light">
+	<div class="form-group row">
+		<label class="col-form-label col-sm-2 col-sm-offset-1">
+			Nombre:
+		</label>
+		<div class="col-sm-3">
+			<input type="text" name="Nombre" class="form-control" formControlName="Nombre" maxlength="55" />
+		</div>
+		<label class="col-form-label col-sm-2  text-left">
+			Activo:
+		</label>
+		<div class="col-sm-3">
+			<select class="form-control" name="Activo" formControlName="Activo">
+				<option>
+					‌
+				<option>
+			</select>
+		</div>
+	</div>
+	<!-- Botones -->
+	<div class="row justify-content-center">
+		<button type="button" class="btn btn-primary">
+			<span class="fas fa-search"> </span> Consultar
+		</button>
+		&nbsp;
+		<button type="button" class="btn btn-primary">
+			<span class="fas fa-plus"> </span>
+			Agregar
+		</button>
+	</div>
+</form>
+
+<!-- Tabla de resutados de busqueda y Paginador-->
+<div id="divTablaResultados">
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th class="text-center">Nombre</th>
+				<th class="text-center">Precio</th>
+				<th class="text-center">Stock</th>
+				<th class="text-center">Fecha de Alta</th>
+				<th>Familia</th>
+				<th class="text-center">Activo</th>
+				<th class="text-center text-nowrap">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Hola mundo</td>
+				<td class="text-right">299</td>
+				<td class="text-right">20</td>
+				<td>02/02/2020</td>
+				<td>Duki</td>
+				<td>No</td>
+				<td class="text-center text-nowrap">
+					<button type="button" class="btn btn-sm btn-outline-primary" title="Ver">
+						<span class="fas fa-eye"></span>
+					</button>
+					<button type="button" class="btn btn-sm btn-outline-primary" title="Modificar">
+						<span class="fas fa-pencil-alt"></span>
+					</button>
+					<button type="button" class="btn btn-sm">
+						<span class="fas"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<!-- Paginador-->
+	<div id="divPaginador" class="col-sm-12">
+		<div class="row bg-light">
+			<div class="col-sm-3">
+				<span class="label label-default font-weight-bold">Registros: </span>
+			</div>
+			<div class="col-sm-6 text-center">
+
+			</div>
+			<div class="col-sm-3 text-right">
+				<button type="button" class="btn btn-primary"><span class="fas fa-print"></span>
+					Imprimir</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--No se encontraron registros-->
+<div id="divMsjFormFiltro" class="alert alert-info">
+	<span class="fas fa-exclamation-sign"></span>
+	<!-- texto: No se encontraron registros -->
+</div>
+
+<!-- Registro en Alta,Modificacion y Consulta -->
+<form name="FormReg" class="bg-light">
+
+	<fieldset>
+		<!--campo nombre-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Nombre">Nombre <span
+					class="text-danger">*</span></label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" formControlName="Nombre" />
+
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+				<span class="text-danger">
+					Dato texto, 4 a 55 caracteres.
+				</span>
+
+			</div>
+		</div>
+
+		<!--campo precio-->
+		<div class="row form-group">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Precio">Precio <span
+					class="text-danger">*</span></label>
+			<div class="col-sm-6">
+				<input type="text" name="Precio" class="form-control" formControlName="Precio" />
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+				<span class="text-danger">
+					Dato numérico, 1 a 7 dígitos.
+				</span>
+			</div>
+		</div>
+
+
+		<!--campo stock-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Stock">
+				Stock <span class="text-danger">*</span>
+			</label>
+			<div class="col-sm-6">
+				<input type="text" name="Stock" class="form-control" formControlName="Stock" />
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+				<span class="text-danger">
+					Dato numérico, 1 a 7 dígitos.
+				</span>
+			</div>
+		</div>
+
+		<!--campo codigodebarra-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Stock">
+				Codigo De Barra <span class="text-danger">*</span>
+			</label>
+			<div class="col-sm-6">
+				<input type="text" name="CodigoDeBarra" class="form-control" formControlName="CodigoDeBarra" />
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+				<span class="text-danger">
+					Dato numérico, 13 dígitos.
+				</span>
+			</div>
+		</div>
+
+		<!--campo idarticulofamilia-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="IdArticuloFamilia">
+				Familia <span class="text-danger">*</span>
+			</label>
+			<div class="col-sm-6">
+				<select name="IdArticuloFamilia" class="form-control" formControlName="IdArticuloFamilia">
+					<option>
+
+					<option>
+				</select>
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+			</div>
+		</div>
+
+		<!--campo fechaalta-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2">Fecha de alta <span
+					class="text-danger">*</span></label>
+			<div class="col-sm-6">
+				<input class="form-control" name="FechaAlta" formControlName="FechaAlta" />
+
+				<span class="text-danger">
+					Dato requerido.
+				</span>
+				<span class="text-danger">
+					Dato fecha, formato dd/mm/aaaa.
+				</span>
+			</div>
+		</div>
+
+		<!--campo activo-->
+		<div class="form-group row">
+			<label class="col-form-label col-sm-2 col-sm-offset-2" for="Activo">Activo</label>
+			<div class="col-sm-6">
+				<select name="Activo" disabled class="form-control" formControlName="Activo">
+					<option>
+
+					<option>
+				</select>
+			</div>
+		</div>
+	</fieldset>
+
+	<!-- Botones Grabar, Cancelar/Volver' -->
+	<div class="row justify-content-center">
+		<button type="button" class="btn btn-primary">
+			<span class="fas fa-check"></span> Grabar
+		</button>
+		&nbsp;
+		<button type="button" class="btn btn-warning">
+			<span class="fas fa-undo"></span>
+		</button>
+	</div>
+
+	<!--texto: Revisar los datos ingresados...-->
+	<div id="divMsjFormRegistro" class="row alert alert-danger">
+		<span class="fas fa-exclamation-sign"></span>
+	</div>
+
+</form>
